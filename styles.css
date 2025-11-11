@@ -1,0 +1,80 @@
+/* Estilo geral da div que contém todos os tempos (dias, horas, etc.) */
+#contador {
+    /* Usado para centralizar e dar espaço, mas você já tem classes do Bootstrap (d-flex, gap-3) */
+    text-align: center;
+    padding: 15px 0;
+    margin: 30px 0;
+    /* Dando um fundo leve para contrastar com a imagem, se houver */
+    background: rgba(0, 0, 0, 0.3); 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo de cada caixa de tempo (Dias, Horas, Minutos, Segundos) */
+.tempo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    /* Linha sutil separando os elementos */
+    border-right: 1px solid rgba(255, 255, 255, 0.3); 
+    color: #ffffff; /* Texto branco */
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+/* Remove a borda da última caixa */
+.tempo-box:last-child {
+    border-right: none;
+}
+
+/* Estilo do número (o elemento <span> dentro do .tempo-box) */
+.tempo-box span {
+    display: block;
+    font-size: 3.5rem; /* Número grande e chamativo */
+    font-weight: 700;
+    /* Cor que destaque o evento, por exemplo, um tom de azul forte ou a cor primária do seu site */
+    color: var(--bs-primary, #0d6efd); 
+    line-height: 1;
+    margin-bottom: 5px;
+    /* Pequena animação de pulso para chamar a atenção */
+    animation: pulse 1.5s infinite; 
+}
+
+/* Estilo para quando a contagem terminar (a mensagem "O FESTIVAL COMEÇOU!") */
+#contador .text-danger {
+    font-size: 2rem;
+    color: #dc3545 !important; 
+}
+
+/* Keyframes para o efeito de pulso */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* --- Media Query para Responsividade em Telas Pequenas --- */
+@media (max-width: 576px) {
+    #contador {
+        flex-direction: row; /* Mantém em linha */
+        justify-content: space-around;
+        gap: 0; /* Remove o espaçamento padrão */
+        padding: 10px 5px;
+    }
+    .tempo-box {
+        padding: 5px;
+        font-size: 0.7rem;
+    }
+    .tempo-box span {
+        font-size: 1.8rem;
+    }
+}
